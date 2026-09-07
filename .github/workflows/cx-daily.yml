@@ -1,0 +1,88 @@
+name: cx daily fix
+
+# the index publishes 365 days a year. 06:20 UTC sits after the overnight
+# prints land and well before anyone reads the page.
+on:
+  schedule:
+    - cron: "20 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout the site
+        uses: actions/checkout@v4
+
+      - name: checkout the index crate
+        uses: actions/checkout@v4
+        with:
+          repository: cyberia-to/cx
+          path: .cx-src
+
+      - name: cache the rust build
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            .cx-src/target
+          key: cx-cargo-${{ hashFiles('.cx-src/Cargo.toml', '.cx-src/src/**') }}
+
+      - name: test
+        working-directory: .cx-src
+        run: cargo test --release
+
+      - name: build today's fix
+        working-directory: .cx-src
+        run: cargo run --release -- --out out
+
+      - name: publish to the site
+        run: |
+          cp .cx-src/out/index.html cx/index.html
+          cp .cx-src/out/cx.json cx/cx.json
+          if git diff --quiet -- cx/; then
+            echo "the fix is unchanged; nothing to publish"
+            exit 0
+          fi
+          level=$(sed -n 's/.*"level": \([0-9.]*\).*/\1/p' cx/cx.json | head -1)
+          git config user.name "cx"
+          git config user.email "cx@cyberia.my"
+          git add cx/index.html cx/cx.json
+          git commit -m "chore(cx): fix of $(date -u +%Y-%m-%d) — ${level}"
+          git push
+
+      # the graph carries the same fix as its historical record. it lives in
+      # another repo, so this step waits on a token with write access there;
+      # without the secret the site still publishes and the step is skipped.
+      - name: checkout the graph
+        if: ${{ env.GRAPH_TOKEN != '' }}
+        env:
+          GRAPH_TOKEN: ${{ secrets.GRAPH_TOKEN }}
+        uses: actions/checkout@v4
+        with:
+          repository: cyberia-to/cyberia
+          path: .graph
+          token: ${{ secrets.GRAPH_TOKEN }}
+
+      - name: publish to the graph
+        if: ${{ env.GRAPH_TOKEN != '' }}
+        env:
+          GRAPH_TOKEN: ${{ secrets.GRAPH_TOKEN }}
+        working-directory: .graph
+        run: |
+          mkdir -p protocol/cx
+          cp ../.cx-src/out/README.md protocol/cx/README.md
+          cp ../.cx-src/out/history.md "protocol/cx/cx history.md"
+          if git diff --quiet -- protocol/cx; then
+            echo "the record is unchanged; nothing to write"
+            exit 0
+          fi
+          git config user.name "cx"
+          git config user.email "cx@cyberia.my"
+          git add protocol/cx
+          git commit -m "chore(cx): fix of $(date -u +%Y-%m-%d)"
+          git push
