@@ -40,18 +40,18 @@ jobs:
         working-directory: .cx-src
         run: cargo run --release -- --out out
 
-      - name: publish to the site
+      - name: publish the pages
         run: |
           cp .cx-src/out/index.html cx/index.html
           cp .cx-src/out/cx.json cx/cx.json
-          if git diff --quiet -- cx/; then
+          if git diff --quiet -- cx; then
             echo "the fix is unchanged; nothing to publish"
             exit 0
           fi
-          level=$(sed -n 's/.*"level": \([0-9.]*\).*/\1/p' cx/cx.json | head -1)
+          level=$(sed -n 's/.*"level": \([0-9.]*\).*/\1/p'  cx/cx.json | head -1)
           git config user.name "cx"
           git config user.email "cx@cyberia.my"
-          git add cx/index.html cx/cx.json
+          git add cx
           git commit -m "chore(cx): fix of $(date -u +%Y-%m-%d) — ${level}"
           git push
 
