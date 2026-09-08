@@ -116,7 +116,7 @@
     <div class="chips"><span><span class="d crypto"></span>crypto <b>35.0%</b></span><span><span class="d fiat"></span>fiat <b>30.0%</b></span><span><span class="d elements"></span>elements <b>35.0%</b></span></div>
     <table>
       <thead><tr><th>leg</th><th class="n">fix (USD)</th><th class="n">quantity</th><th class="n">weight</th><th class="n">share now</th></tr></thead>
-      <tbody><tr><td><span class="d crypto"></span>BTC</td><td class="n">81,809.83</td><td class="n">0.0004444</td><td class="n">20%</td><td class="n">52.6%</td></tr><tr><td><span class="d crypto"></span>ETH</td><td class="n">2,623.77</td><td class="n">0.01195</td><td class="n">15%</td><td class="n">45.4%</td></tr><tr><td><span class="d fiat"></span>CNY</td><td class="n">0.144658</td><td class="n">0.97703</td><td class="n">15%</td><td class="n">0.2%</td></tr><tr><td><span class="d fiat"></span>USD</td><td class="n">1</td><td class="n">0.15000</td><td class="n">15%</td><td class="n">0.2%</td></tr><tr><td><span class="d elements"></span>GOLD</td><td class="n">4,409.29</td><td class="n">0.0001241</td><td class="n">15%</td><td class="n">0.7%</td></tr><tr><td><span class="d elements"></span>CU</td><td class="n">12,483.48</td><td class="n">0.000020839</td><td class="n">10%</td><td class="n">0.3%</td></tr><tr><td><span class="d elements"></span>OIL</td><td class="n">82.78</td><td class="n">0.0011828</td><td class="n">5%</td><td class="n">0.1%</td></tr><tr><td><span class="d elements"></span>UX</td><td class="n">67.49</td><td class="n">0.0015978</td><td class="n">5%</td><td class="n">0.1%</td></tr></tbody>
+      <tbody><tr><td><span class="d crypto"></span>BTC</td><td class="n">81,809.11</td><td class="n">0.0004444</td><td class="n">20%</td><td class="n">52.6%</td></tr><tr><td><span class="d crypto"></span>ETH</td><td class="n">2,623.77</td><td class="n">0.01195</td><td class="n">15%</td><td class="n">45.4%</td></tr><tr><td><span class="d fiat"></span>CNY</td><td class="n">0.144658</td><td class="n">0.97703</td><td class="n">15%</td><td class="n">0.2%</td></tr><tr><td><span class="d fiat"></span>USD</td><td class="n">1</td><td class="n">0.15000</td><td class="n">15%</td><td class="n">0.2%</td></tr><tr><td><span class="d elements"></span>GOLD</td><td class="n">4,409.36</td><td class="n">0.0001241</td><td class="n">15%</td><td class="n">0.7%</td></tr><tr><td><span class="d elements"></span>CU</td><td class="n">12,483.48</td><td class="n">0.000020839</td><td class="n">10%</td><td class="n">0.3%</td></tr><tr><td><span class="d elements"></span>OIL</td><td class="n">82.78</td><td class="n">0.0011828</td><td class="n">5%</td><td class="n">0.1%</td></tr><tr><td><span class="d elements"></span>UX</td><td class="n">67.49</td><td class="n">0.0015978</td><td class="n">5%</td><td class="n">0.1%</td></tr></tbody>
     </table>
     <div class="note">Quantities are what one CX holds. Weight is what a lease is written at; share is what the leg has become.
     Quantities were fixed on 2016-09-08 and never change, so the shares drift with prices —
@@ -151,7 +151,9 @@
     parcel for a term, never its title. Part of its value is taken as a premium at signing,
     the rest returned as rent, indexed for the life of the contract. Move the sliders to see
     what that split costs, and what a review clause buys when the parcel appreciates faster
-    than the indexation.</p>
+    than the indexation. The dials are grouped by who holds them: what a tenant chooses, what
+    the world decides, and what the estate sets when it underwrites — the last are shown so
+    the price can be checked rather than taken on faith.</p>
     <div id="lcalc"></div>
 <style>
 #lcalc{--s1:#0a0a0a;--s2:#111;--ln:#1f1f1f;--tx:#f2f2f2;--mut:#8a8a8a;--jade:#79ff4f;--amb:#c98500;--red:#e06060;
@@ -186,16 +188,16 @@ const fmt=v=>v>=1000?'$'+(v/1000).toFixed(v>=100000?0:1)+'k':'$'+Math.round(v);
 const full=v=>'$'+Math.round(v).toLocaleString('en-US');
 const pct=(v,d=1)=>v.toFixed(d)+'%';
 const DEFS=[
- ['deal','Deal'],
+ ['choose','What you choose'],
  ['L','Leasehold value today',20000,2000000,10000,'$','What the right to use the parcel for the term is worth — the product itself, priced directly'],
- ['T','Term',5,99,1,' yr',''],
- ['p','Premium (share of economics)',0,100,5,'%','A smaller premium leaves more cash with the business and shifts value into the rent'],
- ['rates','Rates'],
- ['rBase','Base rate (at 100% premium)',5,18,0.5,'%',''],
- ['spread','Risk spread (at 0% premium)',0,10,0.5,'%','Default risk rises as the premium shrinks'],
+ ['T','Term',5,99,1,' yr','Longer term, more value in the lease and a longer rent stream'],
+ ['p','Premium (share of economics)',0,100,5,'%','The one dial that is genuinely yours: pay more at signing and owe less rent, or keep the cash and carry the rent. 100% is the upfront instrument, 0% is pure rent'],
+ ['world','What the world does'],
  ['cpi','Indexation',-15,35,0.5,'%','The band is the collar of the protocol: rent may rise at most 35% and fall at most 15% in a year. The default is what the index delivered over the published decade, which ran hotter than the collar allows'],
- ['grow','Protection from land growth'],
- ['g','Land growth g',0,20,0.5,'%','What the parcel appreciates at. Bali has historically outrun CPI'],
+ ['g','Land growth g',0,20,0.5,'%','What the parcel appreciates at. Nobody sets this; Bali has historically outrun CPI'],
+ ['estate','How the estate prices it'],
+ ['rBase','Base rate (at 100% premium)',5,18,0.5,'%','The estate discount rate. Not a tenant dial — shown so the price can be checked rather than trusted'],
+ ['spread','Risk spread (at 0% premium)',0,10,0.5,'%','What the estate charges for carrying default risk as the premium shrinks'],
  ['N','Review every',1,15,1,' yr','Rent = max(indexed path, the first year carried forward at g); the lessor keeps the same position in the parcel however far the index falls behind']];
 let html='';
 for(const d of DEFS){
