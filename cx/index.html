@@ -189,9 +189,9 @@ const P={L:100000,T:25,p:20,rBase:9,spread:5,cpi:35.0,g:10,N:5};
 const fmt=v=>v>=1000?'$'+(v/1000).toFixed(v>=100000?0:1)+'k':'$'+Math.round(v);
 const full=v=>'$'+Math.round(v).toLocaleString('en-US');
 const pct=(v,d=1)=>v.toFixed(d)+'%';
-// only the indexation moves: everything else is the standard deal and the
-// estate's underwriting, shown as the fixed figures they are
-const LIVE=['cpi'];
+// the client's side is theirs to move, and the indexation is the scenario to
+// stress-test. what the estate underwrites and what the world does stay put
+const LIVE=['L','T','p','cpi'];
 const DEFS=[
  ['deal','Your lease'],
  ['L','Leasehold value today',20000,2000000,10000,'$','What the right to use the parcel for the term is worth — the product itself, priced directly'],
