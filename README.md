@@ -7,7 +7,6 @@ is a path on the site:
 |---|---|---|
 | `cx/` | [/cx](https://cyberia.my/cx) | generated daily by [cx](https://github.com/cyberia-to/cx) |
 | `hackathon/` | [/hackathon](https://cyberia.my/hackathon) | written by hand |
-| `trident/` | [/trident/trident.pink.teaser.mp4](https://cyberia.my/trident/trident.pink.teaser.mp4) | the trident.pink set teaser, 4 min, linked from the trident README |
 
 Push here and the page is live within a minute: cyberproxy clones this repo and a
 cron job rsyncs each directory into the nginx docroot. The sync script, the host
