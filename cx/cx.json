@@ -7,9 +7,9 @@
   "level": 1.4311,
   "twap_days": 365,
   "legs": [
-    {"ticker": "BTC", "group": "crypto", "weight_bp": 2000, "unit": "BTC", "fix": 80758.025287, "quantity": 0.00000419, "share_bp": 2368, "source": "Coinbase BTC-USD daily close", "coverage": "2021-01-07 … 2026-09-18 (2081 observations)"},
-    {"ticker": "ETH", "group": "crypto", "weight_bp": 1500, "unit": "ETH", "fix": 2567.310054, "quantity": 0.00005302, "share_bp": 951, "source": "Coinbase ETH-USD daily close", "coverage": "2021-01-07 … 2026-09-18 (2081 observations)"},
-    {"ticker": "CNY", "group": "fiat", "weight_bp": 1500, "unit": "CNY", "fix": 0.144894, "quantity": 0.96724633, "share_bp": 979, "source": "ECB reference rate via Frankfurter", "coverage": "2021-01-07 … 2026-09-17 (1460 observations)"},
+    {"ticker": "BTC", "group": "crypto", "weight_bp": 2000, "unit": "BTC", "fix": 80764.327534, "quantity": 0.00000419, "share_bp": 2368, "source": "Coinbase BTC-USD daily close", "coverage": "2021-01-07 … 2026-09-18 (2081 observations)"},
+    {"ticker": "ETH", "group": "crypto", "weight_bp": 1500, "unit": "ETH", "fix": 2567.479479, "quantity": 0.00005302, "share_bp": 951, "source": "Coinbase ETH-USD daily close", "coverage": "2021-01-07 … 2026-09-18 (2081 observations)"},
+    {"ticker": "CNY", "group": "fiat", "weight_bp": 1500, "unit": "CNY", "fix": 0.144894, "quantity": 0.96724633, "share_bp": 979, "source": "ECB reference rate via Frankfurter", "coverage": "2021-01-07 … 2026-09-18 (1461 observations)"},
     {"ticker": "USD", "group": "fiat", "weight_bp": 1500, "unit": "USD", "fix": 1.000000, "quantity": 0.15000000, "share_bp": 1048, "source": "quote currency, fixed at 1", "coverage": "2021-01-07 … 2021-01-07 (1 observations)"},
     {"ticker": "GOLD", "group": "elements", "weight_bp": 1500, "unit": "troy oz", "fix": 4428.475753, "quantity": 0.00008348, "share_bp": 2583, "source": "LBMA gold PM fix (USD)", "coverage": "1968-04-01 … 2026-09-17 (14685 observations)"},
     {"ticker": "CU", "group": "elements", "weight_bp": 1000, "unit": "tonne", "fix": 12580.691257, "quantity": 0.00001068, "share_bp": 939, "source": "IMF global copper price via FRED (monthly)", "coverage": "1992-01-01 … 2026-07-01 (415 observations)"},
