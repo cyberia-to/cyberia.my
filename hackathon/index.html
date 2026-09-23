@@ -6,8 +6,11 @@
 <title>Hackathon — watch live · Cyberia</title>
 <meta property="og:title" content="Build an agent that works for you — live from Yerevan">
 <meta property="og:description" content="Thursday, September 10, 11:00. Venue TBA. Stream on Telegram, X and YouTube.">
-<link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/play-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/play-700.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+  @font-face{font-family:'Play';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/play-400.woff2) format('woff2')}
+  @font-face{font-family:'Play';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/play-700.woff2) format('woff2')}
   :root{--bg:#050505;--green:#79ff4f;--cyan:#00e5ff;--ink:#f2f2f2;--mute:#8a8a8a;--line:#1f1f1f}
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{background:var(--bg);color:var(--ink);font-family:'Play',sans-serif;-webkit-font-smoothing:antialiased}
