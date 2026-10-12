@@ -79,7 +79,7 @@
   .btn[disabled]{--c:var(--inactive);box-shadow:none;cursor:default}
   .btn.loading{animation:breathe 1.6s ease-in-out infinite}
   @keyframes breathe{50%{box-shadow:inset calc(1*var(--g)) 0 calc(2*var(--g)) calc(-1.5*var(--g)) var(--c),inset calc(-1*var(--g)) 0 calc(2*var(--g)) calc(-1.5*var(--g)) var(--c)}}
-  .row{display:flex;flex-wrap:wrap;gap:calc(1.5*var(--g))}
+  .row{display:flex;flex-wrap:wrap;justify-content:center;gap:calc(1.5*var(--g))}
   @media (max-width:480px){.row .btn{flex:1 1 100%}}
 
   .status{font-size:calc(1.75*var(--g));line-height:1.4;min-height:calc(2.5*var(--g))}
