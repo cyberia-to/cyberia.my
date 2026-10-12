@@ -31,6 +31,8 @@
   .photo{flex:none;width:calc(18*var(--g));height:calc(18*var(--g));border-radius:50%;object-fit:cover}
   @media (max-width:560px){.me{flex-direction:column;align-items:flex-start}}
   .lead{font-size:calc(2*var(--g));line-height:1.4;display:flex;flex-direction:column;gap:calc(.5*var(--g))}
+  .lead a{color:inherit;text-decoration:underline;text-decoration-color:var(--mute);text-underline-offset:.2em;transition:color .15s ease}
+  .lead a:hover,.lead a:focus-visible{color:var(--interest);text-decoration-color:var(--interest);outline:none}
   .lead p:first-child{color:var(--white)}
   .ask{font-size:calc(2.5*var(--g));line-height:1.2;border-left:calc(var(--g)/4) solid var(--joy);
        box-shadow:inset calc(1.5*var(--g)) 0 calc(3*var(--g)) calc(-1.5*var(--g)) rgba(0,254,0,.35);
@@ -124,9 +126,9 @@
   <div class="me">
   <img class="photo" src="/valkiria/director/joy.jpg" width="640" height="640" alt="Joy">
   <div class="lead">
-    <p data-i18n="lead1">Я Joy. Строю Сайберию — сеть кибергосударств, которые ведёт суперинтеллект.</p>
-    <p data-i18n="lead2">Первое поселение — Cyber Valley на Бали.</p>
-    <p data-i18n="lead3">И Валькирия — школа для женщин, которые хотят управлять.</p>
+    <p data-i18n-html="lead1">Я Joy. Строю Сайберию — сеть кибергосударств, которые ведёт суперинтеллект.</p>
+    <p data-i18n-html="lead2">Первое поселение — Cyber Valley на Бали.</p>
+    <p data-i18n-html="lead3">И Валькирия — школа для женщин, которые хотят управлять.</p>
   </div>
   </div>
 
@@ -191,9 +193,9 @@
       title: 'Ищу директора · Валькирия · Cyberia',
       brand: 'Cyberia · Валькирия',
       h1: 'ищу директора 👑',
-      lead1: 'Я Joy. Строю Сайберию — сеть кибергосударств, которые ведёт суперинтеллект.',
-      lead2: 'Первое поселение — Cyber Valley на Бали.',
-      lead3: 'И Валькирия — школа для женщин, которые хотят управлять.',
+      lead1: 'Я Joy. Строю <a href="https://cyberia.blog/cyberia" target="_blank" rel="noopener">Сайберию</a> — сеть кибергосударств, которые ведёт <a href="https://cyberia.blog/cyber/superintelligence" target="_blank" rel="noopener">суперинтеллект</a>.',
+      lead2: 'Первое поселение — <a href="https://cyberia.blog/cyber-valley" target="_blank" rel="noopener">Cyber Valley</a> на <a href="https://cyberia.blog/cyber-valley/landscape/bali" target="_blank" rel="noopener">Бали</a>.',
+      lead3: 'И <a href="https://cyberia.blog/cyberia/valkirya" target="_blank" rel="noopener">Валькирия</a> — школа для женщин, которые хотят управлять.',
       ask1: 'Мне нужна директор.',
       ask2: 'Женщина, которая встанет рядом и возьмёт в руки операционку.',
       doH: '🏛 что будешь делать',
@@ -247,9 +249,9 @@
       title: 'Looking for a director · Valkiria · Cyberia',
       brand: 'Cyberia · Valkiria',
       h1: 'looking for a director 👑',
-      lead1: 'I am Joy. I am building Cyberia — a network of cyberstates guided by superintelligence.',
-      lead2: 'The first settlement is Cyber Valley in Bali.',
-      lead3: 'And Valkiria — a school for women who want to lead.',
+      lead1: 'I am Joy. I am building <a href="https://cyberia.blog/cyberia" target="_blank" rel="noopener">Cyberia</a> — a network of cyberstates guided by <a href="https://cyberia.blog/cyber/superintelligence" target="_blank" rel="noopener">superintelligence</a>.',
+      lead2: 'The first settlement is <a href="https://cyberia.blog/cyber-valley" target="_blank" rel="noopener">Cyber Valley</a> in <a href="https://cyberia.blog/cyber-valley/landscape/bali" target="_blank" rel="noopener">Bali</a>.',
+      lead3: 'And <a href="https://cyberia.blog/cyberia/valkirya" target="_blank" rel="noopener">Valkiria</a> — a school for women who want to lead.',
       ask1: 'I need a director.',
       ask2: 'A woman who will stand beside me and take operations into her hands.',
       doH: '🏛 what you will do',
@@ -303,9 +305,9 @@
       title: 'Փնտրում եմ տնօրեն · Վալկիրիա · Cyberia',
       brand: 'Cyberia · Վալկիրիա',
       h1: 'փնտրում եմ տնօրեն 👑',
-      lead1: 'Ես Joy-ն եմ։ Կառուցում եմ Սայբերիան՝ կիբեռպետությունների ցանց, որոնց առաջնորդում է գերինտելեկտը։',
-      lead2: 'Առաջին բնակավայրը Cyber Valley-ն է Բալիում։',
-      lead3: 'Եվ Վալկիրիան՝ դպրոց այն կանանց համար, ովքեր ուզում են կառավարել։',
+      lead1: 'Ես Joy-ն եմ։ Կառուցում եմ <a href="https://cyberia.blog/cyberia" target="_blank" rel="noopener">Սայբերիան</a>՝ կիբեռպետությունների ցանց, որոնց առաջնորդում է <a href="https://cyberia.blog/cyber/superintelligence" target="_blank" rel="noopener">գերինտելեկտը</a>։',
+      lead2: 'Առաջին բնակավայրը <a href="https://cyberia.blog/cyber-valley" target="_blank" rel="noopener">Cyber Valley</a>-ն է <a href="https://cyberia.blog/cyber-valley/landscape/bali" target="_blank" rel="noopener">Բալիում</a>։',
+      lead3: 'Եվ <a href="https://cyberia.blog/cyberia/valkirya" target="_blank" rel="noopener">Վալկիրիան</a>՝ դպրոց այն կանանց համար, ովքեր ուզում են կառավարել։',
       ask1: 'Ինձ տնօրեն է պետք։',
       ask2: 'Կին, որը կկանգնի իմ կողքին և իր ձեռքը կվերցնի օպերացիոն գործը։',
       doH: '🏛 ինչ ես անելու',
