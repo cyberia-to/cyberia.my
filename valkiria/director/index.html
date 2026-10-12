@@ -57,6 +57,8 @@
   .apply{display:flex;flex-direction:column;gap:calc(2*var(--g));padding-top:calc(2*var(--g));border-top:calc(var(--g)/8) solid var(--line)}
   .steps{display:flex;flex-direction:column;gap:calc(1*var(--g));font-size:calc(1.75*var(--g));line-height:1.4;color:var(--mute)}
   .steps b{font-weight:400;color:var(--white)}
+  .steps a{color:var(--white);text-decoration:underline;text-decoration-color:var(--mute);text-underline-offset:.2em}
+  .steps a:hover,.steps a:focus-visible{color:var(--interest);text-decoration-color:var(--interest);outline:none}
 
   /* prysm button: transparent, vertical sabers g/4, inward glow 3g, emotion color */
   .btn{--c:var(--white);
@@ -232,7 +234,7 @@
       closing: 'важно не резюме, а кто ты и куда идёшь.',
       applyH: 'отклик — 1 USDT',
       step1: '<b>1.</b> отправь 1 USDT (ERC‑20, Ethereum) на <b>joyshop.eth</b>',
-      step2: '<b>2.</b> скинь хеш транзакции Joy в личку в телеграм <b>@st_joy</b> и пару слов о себе',
+      step2: '<b>2.</b> скинь хеш транзакции Joy в личку в телеграм <a href="https://t.me/st_joy" target="_blank" rel="noopener">@st_joy</a> и пару слов о себе',
       pay: 'откликнуться · 1 USDT', paid: 'оплачено',
       noWallet: 'без кошелька в браузере',
       manual1: 'адрес joyshop.eth — переведи ровно 1 USDT в сети Ethereum:',
@@ -288,7 +290,7 @@
       closing: 'what matters is not your résumé, but who you are and where you are going.',
       applyH: 'apply — 1 USDT',
       step1: '<b>1.</b> send 1 USDT (ERC‑20, Ethereum) to <b>joyshop.eth</b>',
-      step2: '<b>2.</b> send the transaction hash to Joy in a private Telegram message <b>@st_joy</b> with a few words about yourself',
+      step2: '<b>2.</b> send the transaction hash to Joy in a private Telegram message <a href="https://t.me/st_joy" target="_blank" rel="noopener">@st_joy</a> with a few words about yourself',
       pay: 'apply · 1 USDT', paid: 'paid',
       noWallet: 'no wallet in browser',
       manual1: 'joyshop.eth address — send exactly 1 USDT on Ethereum:',
@@ -344,7 +346,7 @@
       closing: 'կարևորը ոչ թե ռեզյումեն է, այլ այն, թե ով ես դու և ուր ես գնում։',
       applyH: 'դիմում՝ 1 USDT',
       step1: '<b>1.</b> ուղարկիր 1 USDT (ERC‑20, Ethereum) <b>joyshop.eth</b> հասցեին',
-      step2: '<b>2.</b> գործարքի հեշը ուղարկիր Joy-ին Telegram-ի անձնական նամակով՝ <b>@st_joy</b>, և մի քանի բառ քո մասին',
+      step2: '<b>2.</b> գործարքի հեշը ուղարկիր Joy-ին Telegram-ի անձնական նամակով՝ <a href="https://t.me/st_joy" target="_blank" rel="noopener">@st_joy</a>, և մի քանի բառ քո մասին',
       pay: 'դիմել · 1 USDT', paid: 'վճարված է',
       noWallet: 'առանց բրաուզերի դրամապանակի',
       manual1: 'joyshop.eth հասցեն՝ փոխանցիր ճիշտ 1 USDT Ethereum ցանցով՝',
