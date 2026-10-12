@@ -6,6 +6,7 @@
 <title>Ищу директора · Валькирия · Cyberia</title>
 <meta name="description" content="Joy ищет директора: компания в Ереване, ритм школы Валькирия, связь с Сайберией. Отклик — 1 USDT.">
 <meta property="og:title" content="ищу директора 👑">
+<meta property="og:image" content="https://cyberia.my/valkiria/director/joy.jpg">
 <meta property="og:description" content="Валькирия · Сайберия. Отклик — 1 USDT на joyshop.eth, хеш — Joy в телеграм.">
 <link rel="preload" href="/fonts/play-400.woff2" as="font" type="font/woff2" crossorigin>
 <style>
@@ -26,6 +27,9 @@
   .brand svg{width:calc(4*var(--g));height:calc(4*var(--g))}
 
   h1{font-size:calc(4*var(--g));line-height:1.2;font-weight:400}
+  .me{display:flex;align-items:center;gap:calc(3*var(--g))}
+  .photo{flex:none;width:calc(18*var(--g));height:calc(18*var(--g));border-radius:50%;object-fit:cover}
+  @media (max-width:560px){.me{flex-direction:column;align-items:flex-start}}
   .lead{font-size:calc(2*var(--g));line-height:1.4;display:flex;flex-direction:column;gap:calc(.5*var(--g))}
   .lead p:first-child{color:var(--white)}
   .ask{font-size:calc(2.5*var(--g));line-height:1.2;border-left:calc(var(--g)/4) solid var(--joy);
@@ -117,10 +121,13 @@
 
   <h1 data-i18n="h1">ищу директора 👑</h1>
 
+  <div class="me">
+  <img class="photo" src="/valkiria/director/joy.jpg" width="640" height="640" alt="Joy">
   <div class="lead">
     <p data-i18n="lead1">Я Joy. Строю Сайберию — сеть кибергосударств, которые ведёт суперинтеллект.</p>
     <p data-i18n="lead2">Первое поселение — Cyber Valley на Бали.</p>
     <p data-i18n="lead3">И Валькирия — школа для женщин, которые хотят управлять.</p>
+  </div>
   </div>
 
   <div class="ask"><span class="a1" data-i18n="ask1">Мне нужна директор.</span><span data-i18n="ask2">Женщина, которая встанет рядом и возьмёт в руки операционку.</span></div>
