@@ -7,6 +7,7 @@ is a path on the site:
 |---|---|---|
 | `cx/` | [/cx](https://cyberia.my/cx) | generated daily by [cx](https://github.com/cyberia-to/cx) |
 | `hackathon/` | [/hackathon](https://cyberia.my/hackathon) | written by hand |
+| `valkiria/director/` | [/valkiria/director](https://cyberia.my/valkiria/director) | written by hand |
 | `app/` + `map/` `menu/` `cities/` `plot/` | [/map](https://cyberia.my/map) | the SPA build, published by `scripts/publish-pages.py` in [cyberia-my](https://github.com/cyberia-to/cyberia-my) |
 
 The SPA rides here while cyberproxy takes no SSH deploy: `app/` holds the build,
