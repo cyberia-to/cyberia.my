@@ -3,18 +3,18 @@
   "base_date": "2022-01-07",
   "base_level": 1,
   "unit": "USD per CX",
-  "date": "2026-11-18",
-  "level": 1.4139,
+  "date": "2026-11-16",
+  "level": 1.4146,
   "twap_days": 365,
   "legs": [
-    {"ticker": "BTC", "group": "crypto", "weight_bp": 2000, "unit": "BTC", "fix": 75668.672493, "quantity": 0.00000419, "share_bp": 2246, "source": "Coinbase BTC-USD daily close", "coverage": "2021-01-07 … 2026-11-18 (2142 observations)"},
-    {"ticker": "ETH", "group": "crypto", "weight_bp": 1500, "unit": "ETH", "fix": 2313.434109, "quantity": 0.00005302, "share_bp": 867, "source": "Coinbase ETH-USD daily close", "coverage": "2021-01-07 … 2026-11-18 (2142 observations)"},
-    {"ticker": "CNY", "group": "fiat", "weight_bp": 1500, "unit": "CNY", "fix": 0.146422, "quantity": 0.96724633, "share_bp": 1001, "source": "ECB reference rate via Frankfurter", "coverage": "2021-01-07 … 2026-11-18 (1504 observations)"},
+    {"ticker": "BTC", "group": "crypto", "weight_bp": 2000, "unit": "BTC", "fix": 75824.545479, "quantity": 0.00000419, "share_bp": 2249, "source": "Coinbase BTC-USD daily close", "coverage": "2021-01-07 … 2026-11-16 (2140 observations)"},
+    {"ticker": "ETH", "group": "crypto", "weight_bp": 1500, "unit": "ETH", "fix": 2320.418958, "quantity": 0.00005302, "share_bp": 869, "source": "Coinbase ETH-USD daily close", "coverage": "2021-01-07 … 2026-11-16 (2140 observations)"},
+    {"ticker": "CNY", "group": "fiat", "weight_bp": 1500, "unit": "CNY", "fix": 0.146371, "quantity": 0.96724633, "share_bp": 1000, "source": "ECB reference rate via Frankfurter", "coverage": "2021-01-07 … 2026-11-13 (1501 observations)"},
     {"ticker": "USD", "group": "fiat", "weight_bp": 1500, "unit": "USD", "fix": 1.000000, "quantity": 0.15000000, "share_bp": 1060, "source": "quote currency, fixed at 1", "coverage": "2021-01-07 … 2021-01-07 (1 observations)"},
-    {"ticker": "GOLD", "group": "elements", "weight_bp": 1500, "unit": "troy oz", "fix": 4446.612558, "quantity": 0.00008301, "share_bp": 2610, "source": "PAXG-USD daily close, Yahoo Finance (one token = one troy ounce; LBMA PM fix as fallback)", "coverage": "2020-11-18 … 2026-11-18 (2192 observations)"},
-    {"ticker": "CU", "group": "elements", "weight_bp": 1000, "unit": "tonne", "fix": 13338.365650, "quantity": 0.00001068, "share_bp": 1008, "source": "IMF global copper price via FRED (monthly)", "coverage": "1992-01-01 … 2026-09-01 (417 observations)"},
-    {"ticker": "OIL", "group": "elements", "weight_bp": 500, "unit": "bbl", "fix": 92.669780, "quantity": 0.00070215, "share_bp": 460, "source": "Brent Europe spot via FRED (daily)", "coverage": "1987-05-20 … 2026-11-11 (9128 observations)"},
-    {"ticker": "UX", "group": "elements", "weight_bp": 500, "unit": "lb U3O8", "fix": 69.526848, "quantity": 0.00151482, "share_bp": 744, "source": "IMF uranium price via FRED (monthly)", "coverage": "1992-01-01 … 2026-09-01 (417 observations)"}
+    {"ticker": "GOLD", "group": "elements", "weight_bp": 1500, "unit": "troy oz", "fix": 4448.031415, "quantity": 0.00008301, "share_bp": 2610, "source": "PAXG-USD daily close, Yahoo Finance (one token = one troy ounce; LBMA PM fix as fallback)", "coverage": "2020-11-16 … 2026-11-16 (2192 observations)"},
+    {"ticker": "CU", "group": "elements", "weight_bp": 1000, "unit": "tonne", "fix": 13318.305223, "quantity": 0.00001068, "share_bp": 1006, "source": "IMF global copper price via FRED (monthly)", "coverage": "1992-01-01 … 2026-09-01 (417 observations)"},
+    {"ticker": "OIL", "group": "elements", "weight_bp": 500, "unit": "bbl", "fix": 92.515643, "quantity": 0.00070215, "share_bp": 459, "source": "Brent Europe spot via FRED (daily)", "coverage": "1987-05-20 … 2026-11-11 (9128 observations)"},
+    {"ticker": "UX", "group": "elements", "weight_bp": 500, "unit": "lb U3O8", "fix": 69.470771, "quantity": 0.00151482, "share_bp": 743, "source": "IMF uranium price via FRED (monthly)", "coverage": "1992-01-01 … 2026-09-01 (417 observations)"}
   ],
   "history": [
     ["2022-01-07", 0.9999],
