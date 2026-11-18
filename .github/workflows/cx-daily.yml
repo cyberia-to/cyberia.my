@@ -22,6 +22,10 @@ jobs:
         with:
           repository: cyberia-to/cx
           path: .cx-src
+          # the record step below pushes back to this repository with
+          # GRAPH_TOKEN in the remote url. a persisted http.extraheader
+          # carrying this repository's GITHUB_TOKEN would outrank it.
+          persist-credentials: false
 
       - name: cache the rust build
         uses: actions/cache@v4
@@ -66,13 +70,13 @@ jobs:
         working-directory: .cx-src
         run: |
           cp out/history.md history.md
-          if git diff --quiet -- history.md; then
+          git add history.md
+          if git diff --cached --quiet -- history.md; then
             echo "the record is unchanged; nothing to write"
             exit 0
           fi
           git config user.name "cx"
           git config user.email "cx@cyberia.my"
           git remote set-url origin "https://x-access-token:${GRAPH_TOKEN}@github.com/cyberia-to/cx.git"
-          git add history.md
           git commit -m "chore: record of $(date -u +%Y-%m-%d)"
           git push origin HEAD:main
