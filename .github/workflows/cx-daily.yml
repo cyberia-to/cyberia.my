@@ -22,6 +22,10 @@ jobs:
         with:
           repository: cyberia-to/cx
           path: .cx-src
+          # the record step below pushes back to this repository with
+          # GRAPH_TOKEN in the remote url. a persisted http.extraheader
+          # carrying this repository's GITHUB_TOKEN would outrank it.
+          persist-credentials: false
 
       - name: cache the rust build
         uses: actions/cache@v4
@@ -55,34 +59,24 @@ jobs:
           git commit -m "chore(cx): fix of $(date -u +%Y-%m-%d) — ${level}"
           git push
 
-      # the graph carries the same fix as its historical record. it lives in
-      # another repo, so this step waits on a token with write access there;
-      # without the secret the site still publishes and the step is skipped.
-      - name: checkout the graph
+      # the record — history.md, a page of the graph — lives in the cx repository
+      # itself, beside the spec. pushing there needs a token with write access
+      # to cyberia-to/cx; without the secret the site still publishes and the
+      # record waits for the next run that has one.
+      - name: publish the record
         if: ${{ env.GRAPH_TOKEN != '' }}
         env:
           GRAPH_TOKEN: ${{ secrets.GRAPH_TOKEN }}
-        uses: actions/checkout@v4
-        with:
-          repository: cyberia-to/cyberia
-          path: .graph
-          token: ${{ secrets.GRAPH_TOKEN }}
-
-      - name: publish to the graph
-        if: ${{ env.GRAPH_TOKEN != '' }}
-        env:
-          GRAPH_TOKEN: ${{ secrets.GRAPH_TOKEN }}
-        working-directory: .graph
+        working-directory: .cx-src
         run: |
-          mkdir -p protocol/cx
-          cp ../.cx-src/out/README.md protocol/cx/README.md
-          cp ../.cx-src/out/history.md "protocol/cx/cx history.md"
-          if git diff --quiet -- protocol/cx; then
+          cp out/history.md history.md
+          git add history.md
+          if git diff --cached --quiet -- history.md; then
             echo "the record is unchanged; nothing to write"
             exit 0
           fi
           git config user.name "cx"
           git config user.email "cx@cyberia.my"
-          git add protocol/cx
-          git commit -m "chore(cx): fix of $(date -u +%Y-%m-%d)"
-          git push
+          git remote set-url origin "https://x-access-token:${GRAPH_TOKEN}@github.com/cyberia-to/cx.git"
+          git commit -m "chore: record of $(date -u +%Y-%m-%d)"
+          git push origin HEAD:main

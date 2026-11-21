@@ -25,7 +25,8 @@ infrastructure belongs.
 `.github/workflows/cx-daily.yml` runs at 06:20 UTC: it checks out the `cx` crate,
 runs its tests, computes the day's century index from public price sources, and
 commits `cx/index.html` and `cx/cx.json` here. With the `GRAPH_TOKEN` secret the
-same run writes the fix into the `cyberia` graph at `protocol/cx/`.
+same run also writes the record, `history.md`, into the
+[cx](https://github.com/cyberia-to/cx) repository itself, beside the spec.
 
 Pages are plain HTML with no build step and no dependency beyond the Play webfont —
 they are meant to outlive the tooling that made them.
